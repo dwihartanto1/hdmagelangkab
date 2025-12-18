@@ -1,0 +1,63 @@
+{
+  "contentTypes": [
+    {
+      "sys": { "id": "school" },
+      "name": "School",
+      "displayField": "name",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "required": true
+        },
+        {
+          "id": "category",
+          "name": "Category",
+          "type": "Symbol",
+          "required": true,
+          "validations": [{ "in": ["RA", "MI", "MTs", "MA"] }]
+        },
+        {
+          "id": "logo",
+          "name": "Logo",
+          "type": "Link",
+          "linkType": "Asset",
+          "required": false
+        },
+        {
+          "id": "website",
+          "name": "Website",
+          "type": "Symbol",
+          "required": true
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "RichText",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "sys": { "id": "sample-1" },
+      "contentType": { "sys": { "id": "school" } },
+      "fields": {
+        "name": { "en-US": "MTs Negeri 1 Magelang" },
+        "category": { "en-US": "MTs" },
+        "website": { "en-US": "https://mtsn1magelang.sch.id" }
+      }
+    },
+    {
+      "sys": { "id": "sample-2" },
+      "contentType": { "sys": { "id": "school" } },
+      "fields": {
+        "name": { "en-US": "MA Negeri 2 Magelang" },
+        "category": { "en-US": "MA" },
+        "website": { "en-US": "https://man2magelang.sch.id" }
+      }
+    }
+  ]
+}

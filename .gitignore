@@ -1,0 +1,22 @@
+# Astro
+.astro/
+dist/
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.production
+.env.local
+.env.*.local
+
+# IDEs and editors
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
