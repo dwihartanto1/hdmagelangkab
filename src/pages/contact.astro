@@ -32,6 +32,20 @@ import "../styles/global.css";
               <a href="/about" class="hover:text-emerald-600 transition-colors">Tentang</a>
               <a href="/contact" class="px-4 py-2 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-all shadow-md font-bold">Kontak Kami</a>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button id="mobile-menu-button" class="md:hidden p-2 text-slate-600 hover:text-emerald-600 transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 overflow-hidden transition-all duration-300">
+          <div class="px-4 pt-2 pb-6 space-y-1">
+            <a href="/" class="block px-4 py-3 text-base font-medium text-slate-600 hover:text-emerald-600 hover:bg-slate-50 rounded-xl transition-all">Beranda</a>
+            <a href="/about" class="block px-4 py-3 text-base font-medium text-slate-600 hover:text-emerald-600 hover:bg-slate-50 rounded-xl transition-all">Tentang</a>
+            <a href="/contact" class="block px-4 py-3 text-base font-bold text-emerald-600 bg-emerald-50 rounded-xl">Kontak Kami</a>
           </div>
         </div>
       </header>
@@ -122,5 +136,25 @@ import "../styles/global.css";
         </div>
       </footer>
     </div>
+
+    <script>
+      // Mobile Menu Toggle
+      (function(){
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuButton?.addEventListener('click', () => {
+          const isHidden = mobileMenu?.classList.contains('hidden');
+          if (isHidden) {
+            mobileMenu?.classList.remove('hidden');
+            menuIcon?.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
+          } else {
+            mobileMenu?.classList.add('hidden');
+            menuIcon?.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7'); // Hamburger icon
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
