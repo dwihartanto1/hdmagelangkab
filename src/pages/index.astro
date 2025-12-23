@@ -9,6 +9,7 @@ let schoolsByCategory = {} as Record<string, School['fields'][]>;
 try {
   const entries = await contentfulClient.getEntries<School>({
     content_type: "card",
+    limit: 1000, // Menambah limit agar semua data (300+) terbaca
   });
 
   // Group schools by category and normalize to uppercase
