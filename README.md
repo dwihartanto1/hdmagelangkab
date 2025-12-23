@@ -17,7 +17,10 @@ Data madrasah dikelola melalui Contentful CMS.
      - `namaMadrasah` (Short text)
      - `kategori` (Short text) - Nilai: BA, RA, MI, MTs, MA
      - `linkRdm` (Short text) - URL website
-     - `logo` (Media)
+  *   `logo` (Media)
+
+---
+*Last updated: December 23, 2025*
 4. Konfigurasi `.env`:
    - Isi `CONTENTFUL_SPACE_ID` dan `CONTENTFUL_ACCESS_TOKEN`.
 5. Jalankan dev server: `npm run dev`
