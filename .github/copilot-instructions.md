@@ -1,7 +1,7 @@
 - [x] Verify that the copilot-instructions.md file in the .github directory is created.
 
 - [x] Clarify Project Requirements
-	Project requirements clarified: Astro website for HD Magelang listing Madrasah schools by category RA, MI, MTs, MA, with cards linking to external websites, data from Contentful.
+	Project requirements clarified: Astro website for HD Magelang listing Madrasah schools by category BA, RA, MI, MTs, MA, with cards linking to external websites, data from Contentful.
 
 - [x] Scaffold the Project
 	Astro project scaffolded manually with basic structure, including package.json, scripts, pages, config, and TypeScript setup.

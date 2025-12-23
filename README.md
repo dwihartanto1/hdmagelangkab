@@ -2,7 +2,7 @@
 
 Layanan untuk mengonlinekan RDM Madrasah di Kabupaten Magelang.
 
-Website ini menampilkan daftar madrasah dengan kategorisasi RA, MI, MTs, MA. Setiap sekolah ditampilkan dalam card yang berisi logo dan nama, dengan link ke website masing-masing.
+Website ini menampilkan daftar madrasah dengan kategorisasi BA, RA, MI, MTs, MA. Setiap sekolah ditampilkan dalam card yang berisi logo dan nama, dengan link ke website masing-masing.
 
 Data madrasah dikelola melalui Contentful CMS.
 
@@ -15,7 +15,7 @@ Data madrasah dikelola melalui Contentful CMS.
    - Content Type ID: `card`
    - Fields:
      - `namaMadrasah` (Short text)
-     - `kategori` (Short text) - Nilai: RA, MI, MTs, MA
+     - `kategori` (Short text) - Nilai: BA, RA, MI, MTs, MA
      - `linkRdm` (Short text) - URL website
      - `logo` (Media)
 4. Konfigurasi `.env`:

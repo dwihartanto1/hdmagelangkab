@@ -5,7 +5,7 @@ export interface School {
   contentTypeId: "card";
   fields: {
     namaMadrasah: EntryFieldTypes.Text;
-    kategori: EntryFieldTypes.Text; // RA, MI, MTs, MA
+    kategori: EntryFieldTypes.Text; // BA, RA, MI, MTs, MA
     logo: EntryFieldTypes.AssetLink;
     linkRdm: EntryFieldTypes.Text;
     nsm?: EntryFieldTypes.Integer;
