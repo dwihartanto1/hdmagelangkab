@@ -11,13 +11,29 @@ try {
     content_type: "card",
   });
 
-  // Group schools by category
-  schoolsByCategory = entries.items.reduce((acc, item) => {
-    const category = item.fields.kategori || 'Uncategorized';
+  // Group schools by category and normalize to uppercase
+  const grouped = entries.items.reduce((acc, item) => {
+    const category = (item.fields.kategori || 'Uncategorized').toUpperCase();
     if (!acc[category]) acc[category] = [];
     acc[category].push(item.fields);
     return acc;
   }, {} as Record<string, School['fields'][]>);
+
+  // Sort categories in specific order: BA, RA, MI, MTs, MA
+  const order = ['BA', 'RA', 'MI', 'MTs', 'MA'];
+  schoolsByCategory = Object.keys(grouped)
+    .sort((a, b) => {
+      const indexA = order.indexOf(a);
+      const indexB = order.indexOf(b);
+      if (indexA === -1 && indexB === -1) return a.localeCompare(b);
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    })
+    .reduce((acc, key) => {
+      acc[key] = grouped[key];
+      return acc;
+    }, {} as Record<string, School['fields'][]>);
 } catch (error) {
   console.error("Error fetching schools:", error);
   // Placeholder data for development
@@ -205,13 +221,13 @@ try {
 
         function filterCards() {
           const q = (search.value || '').trim().toLowerCase();
-          const activeCat = document.querySelector('.category-nav .cat.active')?.getAttribute('data-cat') || 'all';
+          const activeCat = (document.querySelector('.category-nav .cat.active')?.getAttribute('data-cat') || 'all').toUpperCase();
 
           cards().forEach(card => {
             const name = (card.getAttribute('data-name') || '').toLowerCase();
-            const cat = card.getAttribute('data-category') || '';
+            const cat = (card.getAttribute('data-category') || '').toUpperCase();
             const matchesText = q === '' || name.includes(q);
-            const matchesCat = activeCat === 'all' || cat === activeCat;
+            const matchesCat = activeCat === 'ALL' || cat === activeCat;
             
             if (matchesText && matchesCat) {
               card.style.display = 'flex';
